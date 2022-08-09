@@ -1,8 +1,11 @@
-// Require the necessary discord.js classes
-import { Client, GatewayIntentBits } from 'discord.js';
-import { token, guildId, clientId } from './config.json' assert {type: 'json'};
-import { SlashCommandBuilder, Routes } from 'discord.js';
+import * as dotenv from 'dotenv';
+import { SlashCommandBuilder, Routes, Client, GatewayIntentBits } from 'discord.js';
 import { REST } from '@discordjs/rest';
+
+dotenv.config();
+const { token, clientId, guildId } = process.env;
+console.log(process.env)
+
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -12,9 +15,7 @@ client.once('ready', () => {
 });
 
 // Login to Discord with your client's token
-client.login(token.token);
-
-
+client.login(token);
 
 const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
