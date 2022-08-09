@@ -18,9 +18,7 @@ client.once('ready', () => {
 client.login(token);
 
 const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
-	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
-	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
+	new SlashCommandBuilder().setName('Hello').setDescription('Greet Horse Horse'),
 ]
 	.map(command => command.toJSON());
 
@@ -35,11 +33,7 @@ rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 	
 		const { commandName } = interaction;
 	
-		if (commandName === 'ping') {
-			await interaction.reply('Pong!');
-		} else if (commandName === 'server') {
-			await interaction.reply('Server info.');
-		} else if (commandName === 'user') {
-			await interaction.reply('User info.');
+		if (commandName === 'Hello') {
+			await interaction.reply('Neigh, I am Horse Horse');
 		}
 	});
