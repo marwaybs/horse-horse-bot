@@ -4,7 +4,7 @@ import { REST } from '@discordjs/rest';
 
 dotenv.config();
 const { token, clientId, guildId } = process.env;
-console.log(process.env)
+
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -19,6 +19,7 @@ client.login(token);
 
 const commands = [
 	new SlashCommandBuilder().setName('hello').setDescription('Greet Horse Horse'),
+	new SlashCommandBuilder().setName('bye').setDescription('Bye Horse Horse')
 ]
 	.map(command => command.toJSON());
 
@@ -35,5 +36,7 @@ rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 	
 		if (commandName === 'hello') {
 			await interaction.reply('Neigh, I am Horse Horse');
+		} else if  (commandName === 'bye') {
+			await interaction.reply('byeee')
 		}
 	});
