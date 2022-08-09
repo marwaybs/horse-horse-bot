@@ -18,7 +18,7 @@ client.once('ready', () => {
 client.login(token);
 
 const commands = [
-	new SlashCommandBuilder().setName('Hello').setDescription('Greet Horse Horse'),
+	new SlashCommandBuilder().setName('hello').setDescription('Greet Horse Horse'),
 ]
 	.map(command => command.toJSON());
 
