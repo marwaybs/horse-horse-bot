@@ -33,7 +33,7 @@ rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 	
 		const { commandName } = interaction;
 	
-		if (commandName === 'Hello') {
+		if (commandName === 'hello') {
 			await interaction.reply('Neigh, I am Horse Horse');
 		}
 	});
